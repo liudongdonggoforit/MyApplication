@@ -3,9 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    android:orientation="vertical">
-    <include layout="@layout/include_main_topbar"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <include android:id="@+id/weather"
+        layout="@layout/include_main_weather"/>
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+   </RelativeLayout>
 </LinearLayout>

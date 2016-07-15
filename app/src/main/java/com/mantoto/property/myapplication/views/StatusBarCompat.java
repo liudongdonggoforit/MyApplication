@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * ³Á½şÊ½×´Ì¬À¸
+ * æ²‰æµ¸å¼çŠ¶æ€æ 
  */
 public class StatusBarCompat
 {
