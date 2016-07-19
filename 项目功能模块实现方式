@@ -1,3 +1,9 @@
-1.沉浸式状态栏的实现
-1、ScreenUtil计算屏幕相关尺寸.在BaseActivity中使用。
-2、
+一、状态栏颜色设置
+1、在布局文件中添加
+    Android:clipToPadding="true"
+    android:fitsSystemWindows="true"两个属性
+    android:clipToPadding ： 定义布局间是否有间距
+    android:fitsSystemWindows="true"： 意思就是设置应用布局时是否考虑系统窗口布局；如果为true，将调整系统窗口布局以适应你自定义的布局。比如系统有状态栏，应用也有状态栏时。
+    看你这个布局代码，恰恰是在定义标题栏样式，所以用到这行代码了。
+2、引入SystemBarTint开源库
+3、在BaseActivity中书写设置状态栏颜色的方法 initSystemBar setTranslucentStatus

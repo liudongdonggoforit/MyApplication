@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="100dp"
+    android:orientation="horizontal">
     <!--日期显示-->
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        android:gravity="center">
+
         <TextView
             android:id="@+id/main_year_month"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:textColor="@color/whiter"
             android:layout_marginBottom="5dp"
-            android:text="2016.7"/>
+            android:gravity="center_vertical"
+            android:text="2016.7"
+            android:textColor="@color/whiter" />
 
         <LinearLayout
             android:id="@+id/main_date"
@@ -25,22 +26,23 @@
             android:layout_toRightOf="@+id/main_year_month"
             android:gravity="center_vertical"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="36sp"
                 android:text="15"
                 android:textColor="@color/whiter"
-               />
+
+                android:textSize="36sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="@color/whiter"
+                android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
                 android:text="星期五"
-                android:layout_marginRight="5dp"
-                />
+                android:textColor="@color/whiter"
+                android:textSize="14sp" />
         </LinearLayout>
     </RelativeLayout>
     <!-- 天气显示-->
