@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
+    useLibrary('org.apache.http.legacy')
 
     defaultConfig {
         applicationId "com.mantoto.property.myapplication"
@@ -24,4 +25,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.4'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
 }

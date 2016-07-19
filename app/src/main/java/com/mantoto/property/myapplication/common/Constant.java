@@ -15,5 +15,9 @@ public class Constant {
      * 测试服务器地址
      */
     public static final String URL = "http://dev.mantoto.com/";
+    /**
+     * 获取天气接口
+     */
+    public static final String GET_WEATHER = URL+"/Json/GetWeather.aspx";
 
 }

@@ -7,3 +7,18 @@
     看你这个布局代码，恰恰是在定义标题栏样式，所以用到这行代码了。
 2、引入SystemBarTint开源库
 3、在BaseActivity中书写设置状态栏颜色的方法 initSystemBar setTranslucentStatus
+
+二、添加封装volley
+    1、添加网络请求权限
+    2、添加gson 、volley library
+    3、加入volley封装工具类、及JsonUtil工具类 ByteArrayRequest IRequest RequestJsonListener RequestListener RequestManager RequestParams
+    4、添加数据加载动画 添加图片、Loading.xml文件 添加fragment_loading.xml布局文件
+    (遇到问题：
+    1、Loading.xml 文件应当放在drawable文件夹下
+    2、在style中添加动画样式 backgroundDimEnabled要求最低SDK为3 在清单文件中添加  <uses-sdk android:minSdkVersion="3" android:maxSdkVersion="23"/>
+    3、引入工具类提示错误一般是导入路径出错
+    4、AdnroidManifest文件添加 android:name=".MantotoApplication" 否则volley网络请求时会出现空指针
+    )
+    /**关键问题
+    Android6.0已经不支持 HttpClient 的使用 在volley工具类的封装中使用了该方法 暂时未修改 建议修改为HttpURLConnection
+    解决方法  在主grandle中的Android{}下添加 useLibrary('org.apache.http.legacy')*/
