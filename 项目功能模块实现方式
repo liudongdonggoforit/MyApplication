@@ -22,3 +22,13 @@
     /**关键问题
     Android6.0已经不支持 HttpClient 的使用 在volley工具类的封装中使用了该方法 暂时未修改 建议修改为HttpURLConnection
     解决方法  在主grandle中的Android{}下添加 useLibrary('org.apache.http.legacy')*/
+
+
+三、添加天气资源图片和背景图片
+    1、布局相同采用统一样式
+    2、字体大小、空间大小采用从dimens、strings、color引用
+
+四、添加底部导航栏
+    1、在drawable文件夹下写图片选择状态的xml文件
+    2、书写布局文件并以layout的形式引入到activity_main布局中
+    3、底部导航栏使用FrameLayout为了更好的拓展使用
