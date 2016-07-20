@@ -1,4 +1,4 @@
-一、状态栏颜色设置
+ 一、状态栏颜色设置
 1、在布局文件中添加
     Android:clipToPadding="true"
     android:fitsSystemWindows="true"两个属性
@@ -32,3 +32,8 @@
     1、在drawable文件夹下写图片选择状态的xml文件
     2、书写布局文件并以layout的形式引入到activity_main布局中
     3、底部导航栏使用FrameLayout为了更好的拓展使用
+
+五、BaseActivity、BaseFragment 基类的实现
+    1、定义公共属性或方法时使用protect
+    2、添加初始化布局、事件、访问数据、初始动画加载等等以及一些第三方引用
+    3、使用onCreate 、 OnDestroy、 onActivityCreate  onCreateView  公共方法
