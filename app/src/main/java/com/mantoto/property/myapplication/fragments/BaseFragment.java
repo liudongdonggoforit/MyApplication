@@ -1,8 +1,8 @@
 package com.mantoto.property.myapplication.fragments;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +13,7 @@ import android.view.ViewGroup;
  * At 20:00
  * My Application
  */
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
     protected View mView;
     @Override
     public void onCreate(Bundle savedInstanceState) {

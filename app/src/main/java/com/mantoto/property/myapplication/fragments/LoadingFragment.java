@@ -25,26 +25,22 @@ public class LoadingFragment extends DialogFragment {
 		Dialog dialog = new Dialog(getActivity(), R.style.MyLoadDialog);
 		dialog.setCanceledOnTouchOutside(false);
 		dialog.setContentView(view);
-		System.out.println("======================================================onCreateDialog"); 
 		return dialog;
 	}
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
-		System.out.println("======================================================onActivityCreated"); 
 	}
 	@Override
 	public void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
-		System.out.println("======================================================onStart"); 
 	}
 	public void setMsg(String msg) {
 		if (msg != null) {
 			this.mMsg = msg;
 		}
-		System.out.println("======================================================setMsg"); 
 	}
 
 }

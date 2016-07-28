@@ -36,8 +36,8 @@
         <item name="android:textSize">@dimen/text_size_fourteen</item>
     </style>
     <style name="MainWeatherImageView">
-        <item name="android:layout_width">@dimen/width_size_twenty</item>
-        <item name="android:layout_height">@dimen/width_size_twenty</item>
+        <item name="android:layout_width">@dimen/width_size_eighteen</item>
+        <item name="android:layout_height">@dimen/width_size_eighteen</item>
     </style>
 
 </resources>

@@ -37,3 +37,13 @@
     1、定义公共属性或方法时使用protect
     2、添加初始化布局、事件、访问数据、初始动画加载等等以及一些第三方引用
     3、使用onCreate 、 OnDestroy、 onActivityCreate  onCreateView  公共方法
+    4、loading.xml 包含了加载失败、正在加载、无网络、空数据等四种状态下的布局
+    5、在BaseActivity 和 BaseFragment 中需要添加公共数据 首先是公共布局文件、获得数据、以及加载动画
+    6、公共布局包括顶部导航栏和数据加载时显示布局
+    7、加载数据时要判断各个加载状态下显示的布局
+
+
+六、首页底部导航切换Fragment的实现
+    1、定义一个View数组用来存放底部按钮
+    2、定义一个Fragment数组用来存放相关Fragment
+    3、使View和Fragment建立联系
