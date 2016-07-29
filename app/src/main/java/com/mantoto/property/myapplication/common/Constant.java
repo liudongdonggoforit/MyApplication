@@ -19,5 +19,9 @@ public class Constant {
      * 获取天气接口
      */
     public static final String GET_WEATHER = URL+"/Json/GetWeather.aspx";
+    /**
+     * 获取菜单项
+     */
+    public static final String GET_MENU_LIST = URL + "/Json/MenuListGet.aspx";
 
 }

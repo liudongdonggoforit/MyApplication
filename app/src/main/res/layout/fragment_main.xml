@@ -106,4 +106,18 @@
             android:layout_marginLeft="20dp"
             android:src="@drawable/loading_0" />
     </LinearLayout>
+    <GridView
+        android:id="@+id/main_gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:numColumns="4"
+       android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+    </GridView>
+    <include layout="@layout/loading"/>
 </LinearLayout>

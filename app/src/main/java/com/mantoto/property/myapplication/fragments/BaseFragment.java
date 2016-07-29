@@ -1,5 +1,6 @@
 package com.mantoto.property.myapplication.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
  * My Application
  */
 public abstract class BaseFragment extends Fragment {
+    protected Activity mContext;
     protected View mView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mContext = getActivity();
         initViews();
         initEvents();
         onLoadData();
