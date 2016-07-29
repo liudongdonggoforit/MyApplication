@@ -2,4 +2,19 @@
     <string name="app_name">My Application</string>
     <string name="main_top_title">漫途社区</string>
     <string name="main_top_temperature">20℃</string>
+
+    <string name="menu_catering">catering</string>
+    <string name="menu_message">message</string>
+    <string name="menu_express">express</string>
+    <string name="menu_flea">flea</string>
+    <string name="menu_shopping">shopping</string>
+    <string name="menu_traffic">traffic</string>
+    <string name="menu_medical">hospital</string>
+    <string name="menu_living">living</string>
+    <string name="menu_notification">information</string>
+    <string name="menu_service">service</string>
+    <string name="menu_repair">repair</string>
+    <string name="menu_payment">bill</string>
+    <string name="menu_note">notepad</string>
+    <string name="menu_wifi">wifi</string>
 </resources>
