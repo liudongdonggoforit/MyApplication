@@ -76,7 +76,7 @@ public class MainActivity extends BaseActivity {
             if (fragment == null) {
                 fragment = (Fragment) mFragments[position].newInstance();
                 mFragmentMaps.put(position, fragment);
-                transaction.add(R.id.main_content, fragment);
+                transaction.add(R.id.main_content, fragment).commit();
             } else {
                 transaction.show(fragment);
                 transaction.commit();
