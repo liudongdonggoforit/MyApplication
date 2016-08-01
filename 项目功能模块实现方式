@@ -47,3 +47,8 @@
     1、定义一个View数组用来存放底部按钮
     2、定义一个Fragment数组用来存放相关Fragment
     3、使View和Fragment建立联系
+
+
+七、登录界面
+    1、EditText使用shape做背景 button采用Selector做点击变换背景色效果
+    2、style="?android:borderlessButtonStyle" 去掉Button阴影效果

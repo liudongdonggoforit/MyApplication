@@ -23,5 +23,9 @@ public class Constant {
      * 获取菜单项
      */
     public static final String GET_MENU_LIST = URL + "/Json/MenuListGet.aspx";
+    /**
+     * 注册接口
+     */
+//    public static final String
 
 }
