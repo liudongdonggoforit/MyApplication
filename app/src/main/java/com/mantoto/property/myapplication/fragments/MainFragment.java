@@ -127,7 +127,6 @@ public class MainFragment extends BaseFragment {
         IRequest.post2(mContext, Constant.GET_MENU_LIST, object, new RequestListener() {
             @Override
             public void requestSuccess(String json) {
-
             }
 
             @Override
