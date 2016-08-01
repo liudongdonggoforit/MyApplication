@@ -30,6 +30,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
             case R.id.login_register_btn:
                 intent.setClass(LoginActivity.this,RegisterActivity.class);
                 break;
+            case R.id.login_button:
+                intent.setClass(LoginActivity.this,MainActivity.class);
+                break;
         }
         startActivity(intent);
         }
