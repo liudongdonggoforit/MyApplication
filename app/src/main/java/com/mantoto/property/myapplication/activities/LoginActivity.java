@@ -17,7 +17,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
     @Override
     protected void initViews() {
         super.initViews();
-
     }
 
     @Override
