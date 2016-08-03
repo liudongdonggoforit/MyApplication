@@ -16,6 +16,8 @@
             android:layout_centerVertical="true"
             android:src="@drawable/back_select"
             android:padding="10dp"
+            android:onClick="onClick"
+            android:clickable="true"
             android:layout_marginLeft="10dp"
             android:visibility="gone"/>
         <TextView
@@ -34,6 +36,8 @@
             android:layout_centerVertical="true"
             android:src="@drawable/back_select"
             android:padding="10dp"
+            android:onClick="onClick"
+            android:clickable="true"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:visibility="gone"/>
@@ -46,6 +50,8 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:visibility="gone"
+            android:onClick="onClick"
+            android:clickable="true"
             android:textSize="@dimen/text_size_sixteen" />
     </RelativeLayout>
 </LinearLayout>

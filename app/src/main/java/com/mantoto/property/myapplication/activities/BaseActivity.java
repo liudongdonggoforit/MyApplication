@@ -43,20 +43,70 @@ public abstract class BaseActivity extends FragmentActivity {
         }
         //设置状态栏颜色
         initSystemBar(this);
-        initViews();
         initTopBar();
+        initViews();
         initEvents();
         loadDatas();
 
     }
-    protected int getTopBarRes(){
+
+    /**
+     * 获取导航栏左侧图片
+     * @return
+     */
+    protected int getTopBarLeftImgRes(){
+        return 1;
+    }
+
+    /**
+     * 获取导航栏中间文字
+     * @return
+     */
+    protected int getTopBarTextRes(){
         return 0;
     }
+
+    /**
+     * 获取导航栏右侧图片
+     * @return
+     */
+    protected int getTopBarRightImgRes(){
+       return 0;
+    }
+
+    /**
+     * 获取导航栏右侧文字
+     * @return
+     */
+    protected int getTopBarRightTextRes(){
+        return 0;
+    }
+
+    /**
+     * 初始化设置统一导航栏
+     */
     private void initTopBar() {
+        if (findViewById(R.id.top_bar) == null){
+            return;
+        }
         ImageView leftImg = (ImageView) findViewById(R.id.top_bar_left_img);
         TextView textTitle = (TextView) findViewById(R.id.top_bar_text);
         ImageView rightImg = (ImageView) findViewById(R.id.top_bar_right_img);
         TextView rightText = (TextView) findViewById(R.id.top_bar_right_text);
+        if (getTopBarLeftImgRes() != 0){
+            leftImg.setVisibility(View.VISIBLE);
+        }
+        if (getTopBarTextRes() != 0){
+            textTitle.setText(getTopBarTextRes());
+        }
+        if (getTopBarRightImgRes() != 0){
+            rightImg.setVisibility(View.VISIBLE);
+            rightImg.setImageResource(getTopBarRightImgRes());
+        }
+        if (getTopBarRightTextRes() != 0){
+            rightText.setVisibility(View.VISIBLE);
+            rightText.setText(getTopBarRightTextRes());
+        }
 
     }
 
