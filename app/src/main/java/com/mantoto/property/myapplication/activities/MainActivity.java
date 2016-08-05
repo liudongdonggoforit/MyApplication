@@ -95,11 +95,7 @@ public class MainActivity extends BaseActivity {
         Map<String, String> map = new HashMap<String, String>();
         map.put("cityname", "北京");
         JSONObject jsonObject = new JSONObject(map);
-        IRequest.post2(MainActivity.this, Constant.GET_WEATHER, jsonObject, new RequestListener() {
-            @Override
-            public void requestSuccess(String json) {
-
-            }
+        IRequest.postJson(MainActivity.this, Constant.GET_WEATHER, jsonObject, new RequestListener() {
 
             @Override
             public void requestSuccess(JSONObject json) {

@@ -21,6 +21,7 @@ import com.mantoto.property.myapplication.utils.JsonUtils;
 import com.mantoto.property.myapplication.volley.IRequest;
 import com.mantoto.property.myapplication.volley.RequestListener;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -121,13 +122,13 @@ public class MainFragment extends BaseFragment {
     @Override
     protected void onLoadData() {
         super.onLoadData();
-        Map<String,String> mapParam = new HashMap<String,String>();
-        mapParam.put("propertyid","" + propertyId);
-        JSONObject object = new JSONObject(mapParam);
-        IRequest.post2(mContext, Constant.GET_MENU_LIST, object, new RequestListener() {
-            @Override
-            public void requestSuccess(String json) {
-            }
+        JSONObject object = new JSONObject();
+        try {
+            object.put("propertyid","" + propertyId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        IRequest.postJson(mContext, Constant.GET_MENU_LIST, object, new RequestListener() {
 
             @Override
             public void requestSuccess(JSONObject json) {

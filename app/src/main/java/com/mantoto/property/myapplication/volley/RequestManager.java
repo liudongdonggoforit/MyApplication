@@ -13,6 +13,7 @@ import com.mantoto.property.myapplication.MantotoApplication;
 import com.mantoto.property.myapplication.fragments.LoadingFragment;
 import com.mantoto.property.myapplication.utils.JsonUtils;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
@@ -227,7 +228,12 @@ public class RequestManager {
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                l.requestSuccess(data);
+                JSONObject object = new JSONObject();
+                try {
+                    l.requestSuccess(object.getJSONObject(data));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 if (flag) {
                     if (p.getShowsDialog()) {
                         p.dismiss();

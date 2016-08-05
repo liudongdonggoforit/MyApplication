@@ -27,5 +27,9 @@ public class Constant {
      * 注册接口
      */
 //    public static final String
+    /**
+     * 用户登陆
+     */
+    public static final String GET_USER_VERIFY = URL+"/Json/UserVerify.aspx";
 
 }

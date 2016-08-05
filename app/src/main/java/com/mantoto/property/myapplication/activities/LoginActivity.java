@@ -1,18 +1,34 @@
 package com.mantoto.property.myapplication.activities;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.VolleyError;
 import com.mantoto.property.myapplication.R;
+import com.mantoto.property.myapplication.common.Constant;
+import com.mantoto.property.myapplication.common.MD5;
+import com.mantoto.property.myapplication.model.User;
 import com.mantoto.property.myapplication.utils.CommonUtils;
+import com.mantoto.property.myapplication.utils.JsonUtils;
+import com.mantoto.property.myapplication.volley.IRequest;
+import com.mantoto.property.myapplication.volley.RequestListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by liudongdong on 2016/7/31.
  */
 public class LoginActivity extends BaseActivity implements View.OnClickListener ,View.OnFocusChangeListener{
     private EditText countEt,passwordEt;
+    private String userName,userPassword;
     @Override
     protected int getContentViewResId() {
         return R.layout.activity_login;
@@ -23,8 +39,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         super.initViews();
         countEt = (EditText) findViewById(R.id.login_count_et);
         passwordEt = (EditText) findViewById(R.id.login_password_et);
-        countEt.setOnFocusChangeListener(new editOnFocusListener());
-        passwordEt.setOnFocusChangeListener(new editOnFocusListener());
+        countEt.setOnFocusChangeListener(new EditOnFocusListener());
+        passwordEt.setOnFocusChangeListener(new EditOnFocusListener());
     }
 
 
@@ -33,7 +49,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         Intent intent = new Intent();
         switch (v.getId()){
             case R.id.login_forget_password_btn:
-                Toast.makeText(LoginActivity.this,"123",Toast.LENGTH_LONG).show();
                 intent.setClass(LoginActivity.this,ForgetPasswordActivity.class);
                 break;
             case R.id.login_register_btn:
@@ -47,6 +62,53 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
 
     /**
+     * 加载数据
+     */
+    @Override
+    protected void loadDatas() {
+        super.loadDatas();
+        /**
+         * 登陆请求
+         */
+        RequestLogin();
+    }
+
+    private void RequestLogin() {
+        userName = "13552662536";
+        userPassword = MD5.toMD5("12345");
+        JSONObject post = new JSONObject();
+        try {
+            post.put("username",userName);
+            post.put("password",userPassword);
+            post.put("softtype",1);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        IRequest.postJson(LoginActivity.this, Constant.GET_USER_VERIFY, post, new RequestListener() {
+            @Override
+            public void requestSuccess(JSONObject json) {
+                Log.i("MyLog", "json" + json.toString());
+                User user = JsonUtils.object(json.toString(),User.class);
+                if (user == null){
+                    return;
+                }
+                if (user.code == 200){
+
+                }else if (user.code == 403){
+
+                }else {
+                    Toast.makeText(LoginActivity.this,user.desc, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void requestError(VolleyError error) {
+                Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    /**
      * EditText 点击EditText 编辑框删除hint预设字
      * @param v    (为何不起作用)
      * @param hasFocus
@@ -55,11 +117,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     public void onFocusChange(View v, boolean hasFocus) {
         switch (v.getId()){
             case R.id.login_count_et:
-                Toast.makeText(LoginActivity.this,"123",Toast.LENGTH_LONG).show();
                 CommonUtils.deleteHint(countEt,hasFocus);
                 break;
             case R.id.login_password_et :
-                Toast.makeText(LoginActivity.this,"123",Toast.LENGTH_LONG).show();
                 CommonUtils.deleteHint(passwordEt,hasFocus);
                 break;
         }
@@ -68,17 +128,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     /**
      * 点击EditText 编辑框删除hint预设字
      */
-    private class editOnFocusListener implements View.OnFocusChangeListener{
-
+    private class EditOnFocusListener implements View.OnFocusChangeListener{
         @Override
         public void onFocusChange(View v, boolean hasFocus) {
             switch (v.getId()){
                 case R.id.login_count_et:
-                    Toast.makeText(LoginActivity.this,"123",Toast.LENGTH_LONG).show();
                     CommonUtils.deleteHint(countEt,hasFocus);
                     break;
                 case R.id.login_password_et :
-                    Toast.makeText(LoginActivity.this,"123",Toast.LENGTH_LONG).show();
                     CommonUtils.deleteHint(passwordEt,hasFocus);
                     break;
             }
