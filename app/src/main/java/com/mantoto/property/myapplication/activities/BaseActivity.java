@@ -49,9 +49,6 @@ public abstract class BaseActivity extends FragmentActivity {
         loadDatas();
 
     }
-    protected int getTopBarRes(){
-        return 0;
-    }
     private void initTopBar() {
         ImageView leftImg = (ImageView) findViewById(R.id.top_bar_left_img);
         TextView textTitle = (TextView) findViewById(R.id.top_bar_text);
