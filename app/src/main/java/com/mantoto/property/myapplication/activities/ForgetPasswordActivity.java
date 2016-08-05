@@ -14,7 +14,16 @@ public class ForgetPasswordActivity extends BaseActivity implements View.OnClick
     }
 
     @Override
-    public void onClick(View v) {
+    protected int getTopBarTextRes() {
+        return R.string.forget_password_reset_password;
+    }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.top_bar_left_img :
+                finish();
+                break;
+        }
     }
 }

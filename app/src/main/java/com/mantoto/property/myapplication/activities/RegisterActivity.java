@@ -14,9 +14,13 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
+    protected int getTopBarTextRes() {
+        return  R.string.register_top_title;
+    }
+
+    @Override
     protected void initViews() {
         super.initViews();
-
     }
 
     @Override

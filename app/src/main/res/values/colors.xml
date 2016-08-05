@@ -11,4 +11,5 @@
     <color name="main_button_bg">#CC7E00</color>
     <color name="main_background">#F2F2F2</color>
     <color name="main_gray_background">#CCCCCC</color>
+    <color name="main_gray_bg">#F0F0F0</color>
 </resources>
