@@ -58,4 +58,7 @@
     2.在布局文件中引入布局
     3、在activity中实现相应方法及添加相应点击事件
 
-(TextView自带的可以通过 android:ellipsize="end" android:singleLine="true"实现单行省略，  但是当我们需要控制不是正行时需要通过 指定最大宽度实现自动省略 android:maxWidth="90dp")
+1、(TextView自带的可以通过 android:ellipsize="end" android:singleLine="true"实现单行省略，  但是当我们需要控制不是正行时需要通过 指定最大宽度实现自动省略 android:maxWidth="90dp")
+2、(在使LinearLayout具有像Button一样的点击效果时需要添加  android:clickable="true" 、android:focusable="true"两个属性 如果我们还希望点击效果有“粘滞”效应，即点击之后，仍然保持点击状态，
+直到点击另外一个可点击View，此时还需要再设置一个属性：android:focusableInTouchMode="true")
+3、直接实现点击事件接口时要  把监听事件的对象设置为this

@@ -39,8 +39,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         super.initViews();
         countEt = (EditText) findViewById(R.id.login_count_et);
         passwordEt = (EditText) findViewById(R.id.login_password_et);
-        countEt.setOnFocusChangeListener(new EditOnFocusListener());
-        passwordEt.setOnFocusChangeListener(new EditOnFocusListener());
+        countEt.setOnFocusChangeListener(this);
+        passwordEt.setOnFocusChangeListener(this);
     }
 
 
@@ -122,23 +122,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.login_password_et :
                 CommonUtils.deleteHint(passwordEt,hasFocus);
                 break;
-        }
-    }
-
-    /**
-     * 点击EditText 编辑框删除hint预设字
-     */
-    private class EditOnFocusListener implements View.OnFocusChangeListener{
-        @Override
-        public void onFocusChange(View v, boolean hasFocus) {
-            switch (v.getId()){
-                case R.id.login_count_et:
-                    CommonUtils.deleteHint(countEt,hasFocus);
-                    break;
-                case R.id.login_password_et :
-                    CommonUtils.deleteHint(passwordEt,hasFocus);
-                    break;
-            }
         }
     }
 }

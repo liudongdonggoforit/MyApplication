@@ -38,4 +38,14 @@
     <string name="forget_password_finish">完成</string>
     <string name="forget_password_get_verification_code">获取验证码</string>
     <string name="forget_password_new_password_remind">请输入新密码</string>
+
+    <!--用户中心-->
+    <string name="user_center_information_remind">还没有信息哦，快来完善吧</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="my_order">我的订单</string>
+    <string name="my_address_manage">地址管理</string>
+    <string name="my_vouvcher">代金券</string>
+    <string name="my_coupon">优惠券</string>
+    <string name="my_setting">设置</string>
+    <string name="my_about">关于</string>
 </resources>

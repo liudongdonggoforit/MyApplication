@@ -23,6 +23,22 @@
         <activity android:name=".activities.RegisterActivity"/>
         <!--首页-->
         <activity android:name=".activities.MainActivity"/>
+        <!--个人信息-->
+        <activity android:name=".activities.MyInformationActivity"/>
+        <!--我的收藏-->
+        <activity android:name=".activities.CollectionActivity"/>
+        <!--我的订单-->
+        <activity android:name=".activities.OrderActivity"/>
+        <!--地址管理-->
+        <activity android:name=".activities.AddressActivity"/>
+        <!--代金券-->
+        <activity android:name=".activities.VoucherActivity"/>
+        <!--优惠券-->
+        <activity android:name=".activities.CouponActivity"/>
+        <!--设置-->
+        <activity android:name=".activities.SettingActivity"/>
+        <!--关于-->
+        <activity android:name=".activities.AboutActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

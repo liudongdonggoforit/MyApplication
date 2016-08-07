@@ -2,18 +2,150 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/main_background">
+    android:orientation="vertical">
 
-    <include layout="@layout/include_main_topbar" />
     <LinearLayout
+        android:id="@+id/user_my_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:background="@drawable/user_linearlayout_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:onClick="onClick"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingLeft="20dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/menu_flea" />
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="测试"/>
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_center_information_remind"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/menu_flea" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_my_collection"
+        style="@style/user_LinearLayout"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/user_image"
+            android:src="@drawable/loading_0" />
+
+        <TextView
+            style="@style/user_TextView"
+            android:text="@string/my_collection" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_my_order"
+        style="@style/user_LinearLayout"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/user_image"
+            android:src="@drawable/loading_0" />
+
+        <TextView
+            style="@style/user_TextView"
+            android:text="@string/my_order" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/user_my_address_manage"
+        android:layout_marginTop="20dp"
+        style="@style/user_LinearLayout"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/user_image"
+            android:src="@drawable/loading_0"/>
+        <TextView
+            style="@style/user_TextView"
+            android:text="@string/my_address_manage"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_my_voucher"
+        android:layout_marginTop="20dp"
+        style="@style/user_LinearLayout"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/user_image"
+            android:src="@drawable/loading_0"/>
+        <TextView
+            style="@style/user_TextView"
+            android:text="@string/my_vouvcher"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/user_my_coupon"
+        style="@style/user_LinearLayout"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/user_image"
+            android:src="@drawable/loading_0"/>
+        <TextView
+            style="@style/user_TextView"
+            android:text="@string/my_coupon"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_my_setting"
+        android:layout_marginTop="20dp"
+        style="@style/user_LinearLayout"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/user_image"
+            android:src="@drawable/loading_0"/>
+        <TextView
+            style="@style/user_TextView"
+            android:text="@string/my_setting"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_my_about"
+        android:layout_marginTop="20dp"
+        style="@style/user_LinearLayout"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/user_image"
+            android:src="@drawable/loading_0"/>
+        <TextView
+            style="@style/user_TextView"
+            android:text="@string/my_about"/>
+    </LinearLayout>
+
 </LinearLayout>
