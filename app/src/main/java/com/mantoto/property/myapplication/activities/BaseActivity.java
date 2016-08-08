@@ -46,7 +46,7 @@ public abstract class BaseActivity extends FragmentActivity {
         initTopBar();
         initViews();
         initEvents();
-        loadDatas();
+//        loadDatas();
 
     }
 

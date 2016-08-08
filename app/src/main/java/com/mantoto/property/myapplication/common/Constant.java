@@ -24,12 +24,17 @@ public class Constant {
      */
     public static final String GET_MENU_LIST = URL + "/Json/MenuListGet.aspx";
     /**
-     * 注册接口
+     * 通过手机号获取验证码
      */
-//    public static final String
+    public static final String GET_PHONE_CODE = "http://123.56.96.68:8080/sendCode/sendCodeWithNum/";
+    /**
+     * 通过手机号验证验证码
+     */
+    public static final String GET_VERIFY_CODE = "http://123.56.96.68:8080/sendCode/verifyCode/";
     /**
      * 用户登陆
      */
     public static final String GET_USER_VERIFY = URL+"/Json/UserVerify.aspx";
+
 
 }

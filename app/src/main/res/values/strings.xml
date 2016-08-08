@@ -24,6 +24,8 @@
     <string name="register_input_remind">请输入6-20位由英文字母、数字或符号组成的密码</string>
     <string name="register_please_input_password">请输入密码</string>
     <string name="register_please_confirm_password">请确认密码</string>
+    <string name="please_input_mobile">请输入手机号</string>
+    <string name="please_input_verification_code">请输入验证码</string>
     <!--登录-->
     <string name="login_top_welcome">您好，朋友！</string>
     <string name="login_count_remind">请输入账号</string>

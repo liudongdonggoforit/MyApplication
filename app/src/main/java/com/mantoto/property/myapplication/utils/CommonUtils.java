@@ -22,4 +22,34 @@ public class CommonUtils {
             editText.setHint(hint);
         }
     }
+
+    /**
+     * 同时判断多个输入框
+     * @param editText
+     * @return
+     */
+    public static boolean isEmpty(EditText... editText){
+        for (EditText et: editText) {
+            if (et.getText() == null)
+                return true;
+            if (et.getText().toString().trim().equals(""));
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * 判断单个输入框
+     * @param editText
+     * @return
+     */
+    public static boolean isEmpty(EditText editText){
+        if (editText.getText() == null){
+            return true;
+        }
+        if (editText.getText().toString().trim().equals("")){
+            return true;
+        }
+        return false;
+    }
 }

@@ -3,6 +3,8 @@ package com.mantoto.property.myapplication;
 import android.app.Application;
 import android.content.Context;
 
+import com.mantoto.property.myapplication.utils.LogU;
+
 /**
  * Created by Mr.liu
  * On 2016/7/13
@@ -15,6 +17,7 @@ public class MantotoApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mConText = getApplicationContext();
+        LogU.isDebug = true;
     }
 
     public static Context getConText(){
