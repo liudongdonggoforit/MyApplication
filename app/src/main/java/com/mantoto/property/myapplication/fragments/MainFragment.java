@@ -124,7 +124,7 @@ public class MainFragment extends BaseFragment {
         super.onLoadData();
         JSONObject object = new JSONObject();
         try {
-            object.put("propertyid","" + propertyId);
+            object.put("propertyid",propertyId);
         } catch (JSONException e) {
             e.printStackTrace();
         }

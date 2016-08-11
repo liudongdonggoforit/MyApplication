@@ -6,17 +6,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonObject;
+import com.mantoto.property.myapplication.MantotoApplication;
 import com.mantoto.property.myapplication.R;
 import com.mantoto.property.myapplication.common.Constant;
 import com.mantoto.property.myapplication.utils.CommonUtils;
 import com.mantoto.property.myapplication.utils.ToastU;
 import com.mantoto.property.myapplication.volley.IRequest;
 import com.mantoto.property.myapplication.volley.RequestListener;
+import com.mantoto.property.myapplication.volley.RequestParams;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by liudongdong on 2016/8/1.
@@ -26,6 +37,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private Button verification,confirm;
     private String phoneNumber,verificationNumber;
     private int i = 60;
+    public static RequestQueue queue;
     @Override
     protected int getContentViewResId() {
         return R.layout.activity_register;
@@ -42,6 +54,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     @Override
     protected void initViews() {
         super.initViews();
+        queue = Volley.newRequestQueue(RegisterActivity.this);
         mobile = (EditText) findViewById(R.id.register_mobile_et);
         verificationCode = (EditText) findViewById(R.id.register_verification_code_et);
         inputPassword = (EditText) findViewById(R.id.register_input_et);
@@ -59,25 +72,42 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     @Override
     protected void loadDatas() {
         super.loadDatas();
-        JSONObject object = new JSONObject();
-        try {
-            object.put("phoneNum",phoneNumber);
-            object.put("appName","mantutu");
-            object.put("sendType",1);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        IRequest.postJson(RegisterActivity.this, Constant.GET_PHONE_CODE, object, new RequestListener() {
+        StringRequest request = new StringRequest(Request.Method.POST, Constant.GET_PHONE_CODE, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                ToastU.showShort(RegisterActivity.this,response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                ToastU.showShort(RegisterActivity.this,error.toString());
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> hashMap = new HashMap<String, String>();
+                hashMap.put("phoneNum", "13552662536");
+                hashMap.put("appName", "mantutu");
+                hashMap.put("sendType", "1");
+                return hashMap;
+            }
+        };
+        queue.add(request);
+    /*    RequestParams params = new RequestParams();
+        params.put("phoneNum", "13552662536");
+        params.put("appName", "mantutu");
+        params.put("sendType", "1");
+        IRequest.post(RegisterActivity.this, Constant.GET_PHONE_CODE, params, new RequestListener() {
             @Override
             public void requestSuccess(JSONObject json) {
-                ToastU.showShort(RegisterActivity.this,json.toString());
+            ToastU.showShort(RegisterActivity.this,json.toString());
             }
 
             @Override
             public void requestError(VolleyError error) {
-                ToastU.showShort(RegisterActivity.this,error.getMessage());
+            ToastU.showShort(RegisterActivity.this,error.getMessage());
             }
-        });
+        });*/
     }
 
     @Override
@@ -96,6 +126,9 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     public void run() {
                         for (;i > 0;i--){
                             handler.sendEmptyMessage(1);
+                            if (i<=0){
+                                break;
+                            }
                             try {
                                 Thread.sleep(1000);
                             } catch (InterruptedException e) {
@@ -125,6 +158,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             super.handleMessage(msg);
             if (msg.what == 1){
                 verification.setText("重新发送("+i+")");
+                verification.setClickable(false);
             }
         }
     };
