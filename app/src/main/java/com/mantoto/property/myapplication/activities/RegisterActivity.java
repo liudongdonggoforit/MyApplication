@@ -62,12 +62,13 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         JSONObject object = new JSONObject();
         try {
             object.put("phoneNum",phoneNumber);
-            object.put("appName","mantutu");
-            object.put("sendType",1);
+            object.put("templateStr","SMS_5032123");
+            object.put("code","123456");
+            object.put("product","易修到家");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        IRequest.postJson(RegisterActivity.this, Constant.GET_PHONE_CODE, object, new RequestListener() {
+        IRequest.postJson(RegisterActivity.this, Constant.GET_RANT_CODE, object, new RequestListener() {
             @Override
             public void requestSuccess(JSONObject json) {
                 ToastU.showShort(RegisterActivity.this,json.toString());

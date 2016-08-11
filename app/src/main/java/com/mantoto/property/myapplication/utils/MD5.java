@@ -1,4 +1,4 @@
-package com.mantoto.property.myapplication.common;
+package com.mantoto.property.myapplication.utils;
 
 
 public class MD5

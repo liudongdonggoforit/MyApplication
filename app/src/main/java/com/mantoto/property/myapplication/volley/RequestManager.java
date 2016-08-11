@@ -1,5 +1,6 @@
 package com.mantoto.property.myapplication.volley;
 
+import android.provider.SyncStateContract;
 import android.support.v4.app.FragmentActivity;
 
 import com.android.volley.Request;
@@ -10,8 +11,11 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 import com.mantoto.property.myapplication.MantotoApplication;
+import com.mantoto.property.myapplication.common.Constant;
 import com.mantoto.property.myapplication.fragments.LoadingFragment;
+import com.mantoto.property.myapplication.utils.CommonUtils;
 import com.mantoto.property.myapplication.utils.JsonUtils;
+import com.mantoto.property.myapplication.utils.RSAEncryptor;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +30,7 @@ import java.io.UnsupportedEncodingException;
  */
 public class RequestManager {
     public static RequestQueue mRequestQueue = Volley.newRequestQueue(MantotoApplication.getConText());
-
+    private static RSAEncryptor rsaEncryptor;
     public RequestManager() {
     }
 
@@ -112,6 +116,14 @@ public class RequestManager {
     public static void post2(String url,Object tag,JSONObject params,RequestListener listener){
 //        ByteArrayRequest request = new ByteArrayRequest(Request.Method.POST,url,params,responseListener(listener,false,null),
 //                responseError(listener,false,null));
+        try {
+            String tokens;
+            rsaEncryptor = new RSAEncryptor(Constant.RSA_PUBLIC_KEY,Constant.PKCS8_PRIVATE_KEY);
+            tokens = url+","+"com.wuxianying.gd720"+","+ CommonUtils.getTimeStamp()+","+MantotoApplication.getDeviceIMEI();
+            params.put("token",rsaEncryptor.encryptWithBase64(tokens));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         JsonRequest<JSONObject> request1 = new JsonObjectRequest(Request.Method.POST,url,params,responseListener2(listener,false,null),
                 responseError(listener,false,null));
         addRequest(request1,tag);
