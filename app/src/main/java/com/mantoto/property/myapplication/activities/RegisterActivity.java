@@ -93,21 +93,6 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             }
         };
         queue.add(request);
-    /*    RequestParams params = new RequestParams();
-        params.put("phoneNum", "13552662536");
-        params.put("appName", "mantutu");
-        params.put("sendType", "1");
-        IRequest.post(RegisterActivity.this, Constant.GET_PHONE_CODE, params, new RequestListener() {
-            @Override
-            public void requestSuccess(JSONObject json) {
-            ToastU.showShort(RegisterActivity.this,json.toString());
-            }
-
-            @Override
-            public void requestError(VolleyError error) {
-            ToastU.showShort(RegisterActivity.this,error.getMessage());
-            }
-        });*/
     }
 
     @Override

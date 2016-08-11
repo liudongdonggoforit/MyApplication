@@ -6,11 +6,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.VolleyError;
 import com.mantoto.property.myapplication.R;
 import com.mantoto.property.myapplication.common.Constant;
-import com.mantoto.property.myapplication.common.MD5;
+import com.mantoto.property.myapplication.utils.MD5;
 import com.mantoto.property.myapplication.model.User;
 import com.mantoto.property.myapplication.utils.CommonUtils;
 import com.mantoto.property.myapplication.utils.JsonUtils;
@@ -19,9 +18,6 @@ import com.mantoto.property.myapplication.volley.RequestListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by liudongdong on 2016/7/31.

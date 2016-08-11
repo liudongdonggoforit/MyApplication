@@ -52,4 +52,13 @@ public class CommonUtils {
         }
         return false;
     }
+
+    /**
+     * 获取当前时间戳
+     * @return
+     */
+    public static long getTimeStamp(){
+        long timeStamp = System.currentTimeMillis();
+        return timeStamp;
+    }
 }
