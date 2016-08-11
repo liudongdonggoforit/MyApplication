@@ -28,7 +28,7 @@ public class CommonUtils {
      * @param editText
      * @return
      */
-    public static boolean isEmpty(EditText... editText){
+    public static boolean isEmptys(EditText... editText){
         for (EditText et: editText) {
             if (et.getText() == null)
                 return true;

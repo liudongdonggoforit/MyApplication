@@ -44,16 +44,30 @@ public class Constant {
     /**
      * 通过手机号获取验证码
      */
-    public static final String GET_PHONE_CODE = "http://123.56.96.68:8080/sendCode/sendCodeWithNum/";
+    public static final String GET_PHONE_CODE =  "http://123.56.96.68:8080/sendCode/sendCodeWithNum/";
     /**
      * 通过手机号验证验证码
      */
     public static final String GET_VERIFY_CODE = "http://123.56.96.68:8080/sendCode/verifyCode/";
+    /**
+     * 以后采用短信登录使用
+     */
     public static final String GET_RANT_CODE = "http://sms.wuxianying.com/sendCode/sendSMS/";
     /**
      * 用户登陆
      */
     public static final String GET_USER_VERIFY = URL+"/Json/UserVerify.aspx";
-
+    /**
+     * 根据当前位置识别小区
+     */
+    public static final String GET_LOADING_BY_LOCATION="/Json/propertyByLocation.aspx";
+    /**
+     * 根据模糊字段查询小区
+     */
+    public static final String Get_PROPERTY_BY_NAME=URL +"/Json/propertyByName.aspx";
+    /**
+     * 用户注册接口
+     */
+    public static final String USER_REGISTER_URL = URL + "/Json/UserCreate.aspx";
 
 }
