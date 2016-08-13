@@ -1,5 +1,6 @@
 package com.mantoto.property.myapplication.fragments;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -8,16 +9,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
 import com.android.volley.VolleyError;
 import com.mantoto.property.myapplication.R;
+import com.mantoto.property.myapplication.activities.LivingItemsActivity;
 import com.mantoto.property.myapplication.activities.MainActivity;
+import com.mantoto.property.myapplication.adapter.LivingItemAdapter;
 import com.mantoto.property.myapplication.common.Constant;
+import com.mantoto.property.myapplication.model.LivingItemInfo;
 import com.mantoto.property.myapplication.model.Menu;
 import com.mantoto.property.myapplication.model.MenuList;
 import com.mantoto.property.myapplication.utils.JsonUtils;
+import com.mantoto.property.myapplication.utils.LogU;
+import com.mantoto.property.myapplication.utils.ToastU;
 import com.mantoto.property.myapplication.volley.IRequest;
 import com.mantoto.property.myapplication.volley.RequestListener;
 
@@ -35,7 +42,7 @@ import java.util.Map;
  * At 14:47
  * My Application
  */
-public class MainFragment extends BaseFragment {
+public class MainFragment extends BaseFragment implements AdapterView.OnItemClickListener{
     /**每一个菜单项对应一个tag*/
     private int[] itemTags = {R.string.menu_catering,R.string.menu_express,R.string.menu_flea,
             R.string.menu_living,R.string.menu_medical,R.string.menu_message,R.string.menu_note,
@@ -64,6 +71,7 @@ public class MainFragment extends BaseFragment {
         mGridView = (GridView) mView.findViewById(R.id.main_gridView);
         mGridView.setNumColumns(4);
         mGridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
+        mGridView.setOnItemClickListener(this);
         initImageRes();
         initActivityRes();
     }
@@ -73,7 +81,7 @@ public class MainFragment extends BaseFragment {
         activityRes.put(getResources().getString(R.string.menu_catering), MainActivity.class);
         activityRes.put(getResources().getString(R.string.menu_express),MainActivity.class);
         activityRes.put(getResources().getString(R.string.menu_flea),MainActivity.class);
-        activityRes.put(getResources().getString(R.string.menu_living),MainActivity.class);
+        activityRes.put(getResources().getString(R.string.menu_living),LivingItemsActivity.class);
         activityRes.put(getResources().getString(R.string.menu_medical),MainActivity.class);
         activityRes.put(getResources().getString(R.string.menu_message),MainActivity.class);
         activityRes.put(getResources().getString(R.string.menu_note),MainActivity.class);
@@ -132,12 +140,12 @@ public class MainFragment extends BaseFragment {
 
             @Override
             public void requestSuccess(JSONObject json) {
-                Log.i("MyLog"," json = "+ json.toString());
-                MenuList menus = JsonUtils.object(json.toString(),MenuList.class);
+                Log.i("MyLog", " json = " + json.toString());
+                MenuList menus = JsonUtils.object(json.toString(), MenuList.class);
                 menuList = menus.menuarray;
-                Log.i("MyLog"," menulist = "+ menus.code);
+                Log.i("MyLog", " menulist = " + menus.code);
                 initMenuData();
-                SimpleAdapter simpleAdapter = new SimpleAdapter(mContext,menuData,R.layout.item_main_menu,new String[]{"itemImageView","itemTextView"},new int[]{R.id.itemImageView,R.id.itemTextView});
+                SimpleAdapter simpleAdapter = new SimpleAdapter(mContext, menuData, R.layout.item_main_menu, new String[]{"itemImageView", "itemTextView"}, new int[]{R.id.itemImageView, R.id.itemTextView});
                 mGridView.setAdapter(simpleAdapter);
             }
 
@@ -146,5 +154,35 @@ public class MainFragment extends BaseFragment {
 
             }
         });
+
+        JSONObject object2 = new JSONObject();
+        try {
+            object2.put("propertyid",propertyId);
+            object2.put("livingcategoryid",1);
+            object2.put("pageindex",1);
+            object2.put("latitude",0);
+            object2.put("longitude",0);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        IRequest.postJson(mContext, Constant.GET_LIVING_ITEMS, object2, new RequestListener() {
+            @Override
+            public void requestSuccess(JSONObject json) {
+                LogU.i("123", json.toString());
+
+            }
+
+            @Override
+            public void requestError(VolleyError error) {
+                ToastU.showShort(mContext, error.toString());
+            }
+        });
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent();
+        intent.setClass(mContext,propertyActivityRes.get(position));
+        mContext.startActivity(intent);
     }
 }

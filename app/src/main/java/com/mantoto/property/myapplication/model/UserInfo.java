@@ -6,7 +6,7 @@ package com.mantoto.property.myapplication.model;
  * At 14:35
  * MyApplication
  */
-public class User extends NetInfo{
+public class UserInfo extends NetInfo{
     public String Birthday;
     public String CTime;
     public boolean Gender;

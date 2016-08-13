@@ -53,6 +53,6 @@
     <string name="my_setting">设置</string>
     <string name="my_about">关于</string>
 
-    <!--餐饮、购物、生活服务-->
+    <!--生活服务-->
     <string name="catering">餐饮</string>
 </resources>

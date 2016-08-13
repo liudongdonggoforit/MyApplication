@@ -7,19 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.gson.JsonObject;
-import com.mantoto.property.myapplication.MantotoApplication;
 import com.mantoto.property.myapplication.R;
 import com.mantoto.property.myapplication.common.Constant;
-import com.mantoto.property.myapplication.model.PropertyVo;
-import com.mantoto.property.myapplication.model.User;
+import com.mantoto.property.myapplication.model.PropertyInfo;
+import com.mantoto.property.myapplication.model.UserInfo;
 import com.mantoto.property.myapplication.model.VarificationCode;
 import com.mantoto.property.myapplication.utils.CommonUtils;
 import com.mantoto.property.myapplication.utils.JsonUtils;
@@ -29,14 +21,9 @@ import com.mantoto.property.myapplication.utils.RSAEncryptor;
 import com.mantoto.property.myapplication.utils.ToastU;
 import com.mantoto.property.myapplication.volley.IRequest;
 import com.mantoto.property.myapplication.volley.RequestListener;
-import com.mantoto.property.myapplication.volley.RequestParams;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 
 /**
  * Created by liudongdong on 2016/8/1.
@@ -267,7 +254,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void requestSuccess(JSONObject json) {
                 LogU.i(TAG,json.toString());
-                PropertyVo propertys = JsonUtils.object(json.toString(),PropertyVo.class);
+                PropertyInfo propertys = JsonUtils.object(json.toString(),PropertyInfo.class);
                 if (propertys.code == 200){
                     propertyId = propertys.propertyarray.get(0).PropertyID;
                     LogU.i(TAG,""+propertyId);
@@ -297,14 +284,14 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void requestSuccess(JSONObject json) {
                 LogU.i(TAG,json.toString());
-                User user = JsonUtils.object(json.toString(),User.class);
-                if (user.code == 200){
+                UserInfo userInfo = JsonUtils.object(json.toString(),UserInfo.class);
+                if (userInfo.code == 200){
                     Intent intent = new Intent();
                     intent.setClass(RegisterActivity.this,MainActivity.class);
                     startActivity(intent);
                     finish();
                 }else{
-                    ToastU.showLong(RegisterActivity.this,user.desc);
+                    ToastU.showLong(RegisterActivity.this, userInfo.desc);
                 }
             }
 

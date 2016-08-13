@@ -10,7 +10,7 @@ import com.android.volley.VolleyError;
 import com.mantoto.property.myapplication.R;
 import com.mantoto.property.myapplication.common.Constant;
 import com.mantoto.property.myapplication.utils.MD5;
-import com.mantoto.property.myapplication.model.User;
+import com.mantoto.property.myapplication.model.UserInfo;
 import com.mantoto.property.myapplication.utils.CommonUtils;
 import com.mantoto.property.myapplication.utils.JsonUtils;
 import com.mantoto.property.myapplication.volley.IRequest;
@@ -84,16 +84,16 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             @Override
             public void requestSuccess(JSONObject json) {
                 Log.i("MyLog", "json" + json.toString());
-                User user = JsonUtils.object(json.toString(),User.class);
-                if (user == null){
+                UserInfo userInfo = JsonUtils.object(json.toString(),UserInfo.class);
+                if (userInfo == null){
                     return;
                 }
-                if (user.code == 200){
+                if (userInfo.code == 200){
 
-                }else if (user.code == 403){
+                }else if (userInfo.code == 403){
 
                 }else {
-                    Toast.makeText(LoginActivity.this,user.desc, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, userInfo.desc, Toast.LENGTH_SHORT).show();
                 }
             }
 
