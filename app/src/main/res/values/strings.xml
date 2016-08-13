@@ -52,4 +52,7 @@
     <string name="my_coupon">优惠券</string>
     <string name="my_setting">设置</string>
     <string name="my_about">关于</string>
+
+    <!--生活服务-->
+    <string name="catering">餐饮</string>
 </resources>

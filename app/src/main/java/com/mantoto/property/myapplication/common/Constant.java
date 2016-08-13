@@ -69,5 +69,8 @@ public class Constant {
      * 用户注册接口
      */
     public static final String USER_REGISTER_URL = URL + "/Json/UserCreate.aspx";
-
+    /**
+     * 获取生活项列表
+     */
+    public static final String GET_LIVING_ITEMS = URL + "/Json/LivingItems.aspx";
 }
