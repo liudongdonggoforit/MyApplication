@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.mantoto.property.myapplication.R;
 import com.mantoto.property.myapplication.common.Constant;
+import com.mantoto.property.myapplication.common.LocalStore;
 import com.mantoto.property.myapplication.utils.MD5;
 import com.mantoto.property.myapplication.model.UserInfo;
 import com.mantoto.property.myapplication.utils.CommonUtils;
@@ -89,7 +90,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     return;
                 }
                 if (userInfo.code == 200){
-
+                    LocalStore.setUserInfo(LoginActivity.this,userInfo);
                 }else if (userInfo.code == 403){
 
                 }else {

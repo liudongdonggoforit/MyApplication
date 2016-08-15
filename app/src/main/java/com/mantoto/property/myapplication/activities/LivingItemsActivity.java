@@ -2,12 +2,14 @@ package com.mantoto.property.myapplication.activities;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.android.volley.VolleyError;
 import com.mantoto.property.myapplication.R;
 import com.mantoto.property.myapplication.adapter.LivingItemAdapter;
 import com.mantoto.property.myapplication.common.Constant;
+import com.mantoto.property.myapplication.common.LocalStore;
 import com.mantoto.property.myapplication.model.LivingItemInfo;
 import com.mantoto.property.myapplication.utils.JsonUtils;
 import com.mantoto.property.myapplication.utils.LogU;
@@ -25,7 +27,7 @@ import org.json.JSONObject;
  * At 11:42
  * My ApplicationMyApplication
  */
-public class LivingItemsActivity extends BaseActivity {
+public class LivingItemsActivity extends BaseActivity implements View.OnClickListener{
     private static final String TAG = "LivingItemsActivity";
     private SuperSwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView mRecyclerView;
@@ -56,7 +58,7 @@ public class LivingItemsActivity extends BaseActivity {
         super.loadDatas();
         JSONObject object = new JSONObject();
         try {
-            object.put("propertyid",1);
+            object.put("propertyid", LocalStore.getUserInfo().PropertyID);
             object.put("livingcategoryid",1);
             object.put("pageindex",1);
             object.put("latitude",0);
@@ -78,5 +80,10 @@ public class LivingItemsActivity extends BaseActivity {
                 ToastU.showShort(LivingItemsActivity.this,error.toString());
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        finish();
     }
 }
