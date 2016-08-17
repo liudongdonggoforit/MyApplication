@@ -58,7 +58,7 @@ public class LivingItemsActivity extends BaseActivity implements View.OnClickLis
         super.loadDatas();
         JSONObject object = new JSONObject();
         try {
-            object.put("propertyid", LocalStore.getUserInfo().PropertyID);
+            object.put("propertyid",1);
             object.put("livingcategoryid",1);
             object.put("pageindex",1);
             object.put("latitude",0);

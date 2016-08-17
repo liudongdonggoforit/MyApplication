@@ -52,6 +52,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 intent.setClass(LoginActivity.this,RegisterActivity.class);
                 break;
             case R.id.login_button:
+                loadDatas();
                 intent.setClass(LoginActivity.this,MainActivity.class);
                 break;
         }
@@ -72,7 +73,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     private void RequestLogin() {
         userName = "13552662536";
-        userPassword = MD5.toMD5("12345");
+        userPassword = MD5.toMD5("123456");
         JSONObject post = new JSONObject();
         try {
             post.put("username",userName);
@@ -86,18 +87,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             public void requestSuccess(JSONObject json) {
                 Log.i("MyLog", "json" + json.toString());
                 UserInfo userInfo = JsonUtils.object(json.toString(),UserInfo.class);
-                if (userInfo == null){
-                    return;
-                }
-                if (userInfo.code == 200){
-                    LocalStore.setUserInfo(LoginActivity.this,userInfo);
-                }else if (userInfo.code == 403){
-
-                }else {
-                    Toast.makeText(LoginActivity.this, userInfo.desc, Toast.LENGTH_SHORT).show();
-                }
+//                if (userInfo == null){
+//                    return;
+//                }
+//                if (userInfo.code == 200){
+////                    LocalStore.setUserInfo(LoginActivity.this,userInfo);
+//                }else if (userInfo.code == 403){
+//
+//                }else {
+//                    Toast.makeText(LoginActivity.this, userInfo.desc, Toast.LENGTH_SHORT).show();
+//                }
             }
-
             @Override
             public void requestError(VolleyError error) {
                 Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();

@@ -9,7 +9,7 @@ package com.mantoto.property.myapplication.model;
 public class UserInfo extends NetInfo{
     public String Birthday;
     public String CTime;
-    public boolean Gender;
+    public int Gender;
     public String Mobile;
     public String PhoneNumber;
     public long PropertyID;
@@ -18,6 +18,6 @@ public class UserInfo extends NetInfo{
     public String TrueName;
     public long UserID;
     public String UserName;
-    public boolean isValid;
+    public int isValid;
     public String logoUrl;
 }
